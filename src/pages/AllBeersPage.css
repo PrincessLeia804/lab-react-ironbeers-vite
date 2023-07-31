@@ -13,7 +13,7 @@
     width: 400px;
     flex-direction: row;
     align-content: center;
-    gap: 10px;
+    gap: 20px;
     padding: 15px;
     margin: 10px;
     border-bottom: 0.8px solid grey;
@@ -43,4 +43,9 @@ p {
 
 .beer-img {
     height: 150px;
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
 }

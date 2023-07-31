@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./AllBeersPage.css"
+import "./AllBeersPage.css";
+import { Link } from "react-router-dom";
 
 function AllBeersPage() {
   const [allBeers, setAllBeers] = useState(null);
@@ -10,7 +11,6 @@ function AllBeersPage() {
     if (response.status === 200) {
       const beers = await response.json();
       setter(beers);
-      console.log('beers: ', beers);
     }
   };
 
@@ -20,21 +20,25 @@ function AllBeersPage() {
 
   return allBeers ? (
     <div className="beer-container">
-        {allBeers.map((beer) => {
-          return (
-            <div key={beer._id} className="beer-card">
-              <div>
-                <img src={beer.image_url} className="beer-img" />
+      {allBeers.map((beer) => {
+        return (
+          <>
+            <Link to={`/beers/${beer._id}`} className="link">
+              <div key={beer._id} className="beer-card">
+                <div>
+                  <img src={beer.image_url} className="beer-img" />
+                </div>
+                <div className="beer-info">
+                  <h1>{beer.name}</h1>
+                  <h2>{beer.tagline}</h2>
+                  <p>Created by: {beer.contributed_by}</p>
+                </div>
               </div>
-              <div className="beer-info">
-                <h1>{beer.name}</h1>
-                <h2>{beer.tagline}</h2>
-                <p>Created by: {beer.contributed_by}</p>
-              </div>
-            </div>
-          );
-        })}
-        <hr></hr>
+            </Link>
+          </>
+        );
+      })}
+      <hr></hr>
     </div>
   ) : (
     <h1>Loading...</h1>
