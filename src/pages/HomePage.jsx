@@ -17,7 +17,7 @@ function HomePage() {
 
       <div className="hp-card">
         <img src={Image2}></img>
-        <Link to={"/beers"}>
+        <Link to={"/random-beer"}>
           <h3>Random Beer</h3>
           <p>Lorem Ipsum</p>
         </Link>
@@ -25,7 +25,7 @@ function HomePage() {
 
       <div className="hp-card">
         <img src={Image3}></img>
-        <Link to={"/beers"}>
+        <Link to={"/new-beer"}>
           <h3>New Beer</h3>
           <p>Lorem Ipsum</p>
         </Link>
