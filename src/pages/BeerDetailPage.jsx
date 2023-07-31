@@ -7,7 +7,9 @@ function BeerDetailPage() {
   const [beer, setBeer] = useState(null);
 
   const fetchOneBeer = async (setter, id) => {
-    const response = await fetch(`https://ih-beers-api2.herokuapp.com/beers/${id}`);
+    const response = await fetch(
+      `https://ih-beers-api2.herokuapp.com/beers/${id}`
+    );
 
     if (response.status === 200) {
       const beer = await response.json();
@@ -21,30 +23,36 @@ function BeerDetailPage() {
   }, [beerId]);
 
   return beer ? (
-    <div key={beer._id} className="beer-details">
-      <div className="image">
-        <img src={beer.image_url} alt="Picture of Beer" className="beer-img"/>
-      </div>
-      <div>
-        <div>
-          <h1>{beer.name}</h1>
+    <div key={beer._id} className="beer-flex-container">
+      <div className="beer-details">
+        <div className="image">
+          <img
+            src={beer.image_url}
+            alt="Picture of Beer"
+            className="beer-img"
+          />
+        </div>
+        <div className="beer-content-row">
+          <div>
+            <h1>{beer.name}</h1>
+          </div>
+          <div>
+            <h3>{beer.attenuation_level}</h3>
+          </div>
+        </div>
+        <div className="beer-content-row">
+          <div>
+            <h2>{beer.tagline}</h2>
+          </div>
+          <div>
+            <h4>{beer.first_brewed}</h4>
+          </div>
         </div>
         <div>
-          <h3>{beer.attenuation_level}</h3>
+          <p>{beer.description}</p>
         </div>
+        <h5>{beer.contributed_by}</h5>
       </div>
-      <div>
-        <div>
-          <h2>{beer.tagline}</h2>
-        </div>
-        <div>
-          <h4>{beer.first_brewed}</h4>
-        </div>
-      </div>
-      <div>
-        <p>{beer.description}</p>
-      </div>
-      <h5>{beer.contributed_by}</h5>
     </div>
   ) : (
     <h1>Loading...</h1>

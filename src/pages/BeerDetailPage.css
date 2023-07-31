@@ -1,9 +1,15 @@
+.beer-flex-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
 .beer-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    width: 70%;
+    width: 30%;
+    padding: 20px;
 }
 
 .image {
@@ -14,4 +20,17 @@
 
 .beer-img {
     height: 300px;
+}
+
+.beer-content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h2, h3, h5 {
+    color: grey;
 }
