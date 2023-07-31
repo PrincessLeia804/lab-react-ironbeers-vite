@@ -1,3 +1,9 @@
-function RandomBeersPage() {}
+import React from 'react'
 
-export default RandomBeersPage;
+function RandomBeerPage() {
+  return (
+    <div>RandomBeerPage</div>
+  )
+}
+
+export default RandomBeerPage

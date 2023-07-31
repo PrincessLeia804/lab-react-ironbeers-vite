@@ -1,0 +1,9 @@
+nav {
+    background-color: rgb(70, 197, 250);
+} 
+
+.home-image {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}

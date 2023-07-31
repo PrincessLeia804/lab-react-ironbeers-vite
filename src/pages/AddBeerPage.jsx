@@ -1,3 +1,9 @@
-function AddBeerPage() {}
+import React from 'react'
 
-export default AddBeerPage;
+function AddBeerPage() {
+  return (
+    <div>AddBeerPage</div>
+  )
+}
+
+export default AddBeerPage
