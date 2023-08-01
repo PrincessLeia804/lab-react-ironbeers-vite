@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./AllBeersPage.css";
 import { Link } from "react-router-dom";
+import {fetchBeer} from '../functions/functions';
 
 function AllBeersPage() {
   const [allBeers, setAllBeers] = useState(null);
-
-  const fetchAllBeers = async (setter) => {
-    const response = await fetch(`https://ih-beers-api2.herokuapp.com/beers`);
-
-    if (response.status === 200) {
-      const beers = await response.json();
-      setter(beers);
-    }
-  };
+  const beerApi = `https://ih-beers-api2.herokuapp.com/beers`
 
   useEffect(() => {
-    fetchAllBeers(setAllBeers);
+    fetchBeer(setAllBeers, beerApi);
   }, []);
 
   return allBeers ? (
     <div className="beer-container">
       {allBeers.map((beer) => {
         return (
-          <>
             <Link to={`/beers/${beer._id}`} key={beer._id} className="link">
               <div className="beer-card">
                 <div>
@@ -35,7 +27,6 @@ function AllBeersPage() {
                 </div>
               </div>
             </Link>
-          </>
         );
       })}
       <hr></hr>

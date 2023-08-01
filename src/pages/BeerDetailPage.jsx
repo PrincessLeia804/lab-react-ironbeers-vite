@@ -1,25 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BeerDetailPage.css";
+import {fetchBeer} from "../functions/functions";
 
 function BeerDetailPage() {
   const { beerId } = useParams();
+  const beerApi = `https://ih-beers-api2.herokuapp.com/beers/${beerId}`
   const [beer, setBeer] = useState(null);
 
-  const fetchOneBeer = async (setter, id) => {
-    const response = await fetch(
-      `https://ih-beers-api2.herokuapp.com/beers/${id}`
-    );
-
-    if (response.status === 200) {
-      const beer = await response.json();
-      setter(beer);
-      console.log("beers: ", beer);
-    }
-  };
-
   useEffect(() => {
-    fetchOneBeer(setBeer, beerId);
+    fetchBeer(setBeer, beerApi);
   }, [beerId]);
 
   return beer ? (
