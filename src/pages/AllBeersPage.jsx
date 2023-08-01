@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./AllBeersPage.css";
 import { Link } from "react-router-dom";
-import {fetchBeer} from '../functions/functions';
+import { fetchBeer } from "../functions/functions";
 
 function AllBeersPage() {
   const [allBeers, setAllBeers] = useState(null);
-  const beerApi = `https://ih-beers-api2.herokuapp.com/beers`
+  const [query, setQuery] = useState("");
+  const beerApi = `https://ih-beers-api2.herokuapp.com/beers/search?q=`;
 
   useEffect(() => {
-    fetchBeer(setAllBeers, beerApi);
-  }, []);
+    fetchBeer(setAllBeers, `${beerApi}${query}`);
+  }, [query]);
 
   return allBeers ? (
-    <div className="beer-container">
-      {allBeers.map((beer) => {
-        return (
+    <div className="all-beers-container">
+      <div>
+      <label className="search-label">Search Beer</label>
+      </div>
+      <input
+        name="query"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+      />
+      <div className="beer-container">
+        {allBeers.map((beer) => {
+          return (
             <Link to={`/beers/${beer._id}`} key={beer._id} className="link">
               <div className="beer-card">
                 <div>
@@ -27,9 +37,10 @@ function AllBeersPage() {
                 </div>
               </div>
             </Link>
-        );
-      })}
-      <hr></hr>
+          );
+        })}
+        <hr></hr>
+      </div>
     </div>
   ) : (
     <h1>Loading...</h1>

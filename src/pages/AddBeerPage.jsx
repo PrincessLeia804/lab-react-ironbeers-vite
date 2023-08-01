@@ -50,7 +50,6 @@ function AddBeerPage() {
         <label>Name</label>
         <input
           name="name"
-          type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
@@ -58,7 +57,6 @@ function AddBeerPage() {
         <label>Tagline</label>
         <input
           name="tagline"
-          type="text"
           value={tagline}
           onChange={(event) => setTagline(event.target.value)}
         />
@@ -66,7 +64,6 @@ function AddBeerPage() {
         <label>Description</label>
         <input
           name="description"
-          type="text"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           className="description-box"
@@ -75,7 +72,6 @@ function AddBeerPage() {
         <label>First brewed</label>
         <input
           name="first_brewed"
-          type="text"
           value={first_brewed}
           onChange={(event) => setFirstBrewed(event.target.value)}
         />
@@ -83,7 +79,6 @@ function AddBeerPage() {
         <label>{`Brewer's Tips`}</label>
         <input
           name="brewers_tips"
-          type="text"
           value={brewers_tips}
           onChange={(event) => setBrewersTips(event.target.value)}
         />
@@ -99,7 +94,6 @@ function AddBeerPage() {
         <label>Contributed By</label>
         <input
           name="contributed_by"
-          type="text"
           value={contributed_by}
           onChange={(event) => setContributedBy(event.target.value)}
         />
